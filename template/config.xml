@@ -1,0 +1,13 @@
+<widget id="{{appid}}" version="0.0.1">
+  <name>{{name}}</name>
+  <description>
+    {{description}}
+  </description>
+  <author email="{{email}}" href="http://www.apicloud.com">
+    {{_author}}
+  </author>
+  <content src="\{{ src }}" />
+  <access origin="*" />
+  <preference name="windowBackground" value="#FFF" />
+  <permission name="call" />
+</widget>

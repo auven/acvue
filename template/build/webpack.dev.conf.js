@@ -79,6 +79,9 @@ module.exports = new Promise((resolve, reject) => {
       // add port to devServer config
       devWebpackConfig.devServer.port = port
 
+      // 判断是开发 app
+      process.env.env_platform === 'app' && utils.writeAppConfigXml(port)
+
       // Add FriendlyErrorsPlugin
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {

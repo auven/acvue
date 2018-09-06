@@ -10,12 +10,15 @@ const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
+const utils = require('./utils')
 
 const spinner = ora('building for production...')
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err
+  // 判断是开发 app
+  process.env.env_platform === 'app' && utils.writeAppConfigXml()
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
     if (err) throw err

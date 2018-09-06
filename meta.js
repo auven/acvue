@@ -31,20 +31,42 @@ module.exports = {
       return templateVersion
     },
   },
-  
+
   prompts: {
     name: {
       when: 'isNotTest',
       type: 'string',
       required: true,
-      message: 'Project name',
+      message: 'config.xml 参数 | 项目名称',
+    },
+    appid: {
+      when: 'isNotTest',
+      type: 'string',
+      require: true,
+      message: 'config.xml 参数 | APICloud APPID',
+      validate: function (val) {
+        if (val.match(/^A[\d]{13}$/g)) { // 校验位数
+          return true
+        }
+        return '请输入14位正确的 APICloud APPID'
+      }
     },
     description: {
       when: 'isNotTest',
       type: 'string',
       required: false,
-      message: 'Project description',
-      default: 'A Vue.js project',
+      message: 'config.xml 参数 | 项目描述',
+      default: 'APICloud 结合 vue 快速开发 App 。',
+    },
+    _author: {
+      when: 'isNotTest',
+      type: 'string',
+      message: 'config.xml 参数 | 作者',
+    },
+    email: {
+      when: 'isNotTest',
+      type: 'string',
+      message: 'config.xml 参数 | 邮箱',
     },
     author: {
       when: 'isNotTest',
@@ -171,7 +193,7 @@ module.exports = {
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
   },
-  complete: function(data, { chalk }) {
+  complete: function (data, { chalk }) {
     const green = chalk.green
 
     sortDependencies(data, green)
