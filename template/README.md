@@ -2,35 +2,35 @@
 
 > {{ description }}
 
-## Build Setup
+## 开发
 
+安装项目依赖
 ``` bash
-# install dependencies
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-{{#unit}}
-
-# run unit tests
-npm run unit
-{{/unit}}
-{{#e2e}}
-
-# run e2e tests
-npm run e2e
-{{/e2e}}
-{{#if_or unit e2e}}
-
-# run all tests
-npm test
-{{/if_or}}
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 开发 web 端
+
+``` bash
+# 本地开发，热更新
+npm run dev
+
+# 打包
+npm run build
+```
+
+### 开发 app 端
+
+``` bash
+# 本地开发，热更新
+npm run dev@app
+
+# 打包
+npm run build@app
+```
+
+### 识别开发环境
+
+- `process.env.PLATFORM` : `app` (app 端) | `web` (web 端)
+
+在我们的项目中，可以使用它来判断当前的开发环境，便于区分不同平台。
