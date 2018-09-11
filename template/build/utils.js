@@ -4,6 +4,10 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
@@ -122,8 +126,8 @@ exports.writeAppConfigXml = (port) => {
   const result = handlebars.compile(content)({
     src: port ? 'http://' + exports.getIP() + ':' + port : 'index.html'
   })
-  exports.createFolder('./acapp/widget/config.xml')
-  fs.writeFileSync('./acapp/widget/config.xml', result)
+  exports.createFolder(resolve('./acapp/widget/config.xml'))
+  fs.writeFileSync(resolve('./acapp/widget/config.xml'), result)
 }
 
 // 创建文件
