@@ -18,7 +18,7 @@ npm install -g @vue/cli-init
 
 接着就可以初始化项目了
 ``` bash
-vue init auven/APICloud-vue-quickstart acvue
+vue init auven/acvue#vue-cli2 acvue
 ```
 
 ## 开发
