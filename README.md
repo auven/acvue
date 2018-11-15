@@ -1,6 +1,6 @@
 # APICloud-vue-quickstart
 
-> 基于最新的 vue-cli3
+> 基于最新的 vue-cli3，如果你使用的是 vue-cli2 ，可以查看分支 [vue-cli2](https://github.com/auven/acvue/tree/vue-cli2)
 
 APICloud 结合 vue 快速开发 App ，可同时开发 web 端和 app 端。
 
