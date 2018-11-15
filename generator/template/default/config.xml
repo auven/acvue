@@ -1,0 +1,10 @@
+<widget id="<%= options.appid %>" version="0.0.1">
+  <name><%= options.appName %></name>
+  <description>
+    <%= options.appDesc %>
+  </description>
+  <content src="{{ src }}" />
+  <access origin="*" />
+  <preference name="windowBackground" value="#FFF" />
+  <permission name="call" />
+</widget>
