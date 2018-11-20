@@ -19,6 +19,7 @@ module.exports = (api, options, rootOptions) => {
 
   // 配置文件
   api.render({
-    './.gitignore': './template/_gitignore'
+    './.gitignore': './template/_gitignore',
+    './.browserslistrc': './template/_browserslistrc'
   })
 }
