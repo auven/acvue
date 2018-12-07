@@ -45,7 +45,20 @@ npm run dev@app
 npm run build@app
 ```
 
-然后到 `APICloud` 相关网站上去[下载开发工具](https://docs.apicloud.com/Download/download)，接着选择 `acapp/widget` 文件夹打开，右键选择 `wifi 全量同步` ，开启 app 的本地开发
+手机下载 [AppLoader](https://docs.apicloud.com/Download/download) ，运行
+``` bash
+# 全局安装 apicloud-cli
+npm install -g apicloud-cli
+
+# 启动 wifi 服务
+npm run wifistart
+
+# wifi 增量同步
+npm run wifiupdate
+
+# wifi 全量同步
+npm run wifiupdateall
+```
 
 ### 识别开发环境
 
