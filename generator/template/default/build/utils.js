@@ -34,6 +34,14 @@ exports.writeAppConfigXml = port => {
   fs.writeFileSync(resolve('./acapp/widget/config.xml'), result)
 }
 
+// 写入 APICloud manifest.xml
+exports.writeAppManifestXml = () => {
+  const fs = require('fs')
+  const content = fs.readFileSync('./manifest.xml').toString()
+  exports.createFolder(resolve('./acapp/widget/res/manifest.xml'))
+  fs.writeFileSync(resolve('./acapp/widget/res/manifest.xml'), content)
+}
+
 // 创建文件
 exports.createFolder = to => {
   //文件写入

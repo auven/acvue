@@ -11,6 +11,7 @@ portfinder.getPort((err, port) => {
     // 判断是开发 app
     if (rawArgv.includes('--app')) {
       utils.writeAppConfigXml(port)
+      utils.writeAppManifestXml()
       process.env.VUE_APP_PLATFORM = 'app'
     } else {
       process.env.VUE_APP_PLATFORM = 'h5'

@@ -6,6 +6,7 @@ const args = rawArgv.join(' ')
 // 判断是开发 app
 if (rawArgv.includes('--app')) {
   utils.writeAppConfigXml()
+  utils.writeAppManifestXml()
   process.env.VUE_APP_PLATFORM = 'app'
 } else {
   process.env.VUE_APP_PLATFORM = 'h5'
