@@ -16,21 +16,41 @@ module.exports = (api, options, rootOptions) => {
       handlebars: '^4.0.14',
       portfinder: '^1.0.19',
       runjs: '^4.3.2',
-      '@commitlint/cli': '^7.3.2',
-      '@commitlint/config-conventional': '^7.3.1',
-      'cz-conventional-changelog': '^2.1.0',
-      husky: '^1.3.1'
+      ...(options.useCommitlint
+        ? {
+            '@commitlint/cli': '^7.3.2',
+            '@commitlint/config-conventional': '^7.3.1',
+            'cz-conventional-changelog': '^2.1.0',
+            husky: '^1.3.1'
+          }
+        : {}),
+      ...(options.useVW
+        ? {
+            cssnano: '^4.1.10',
+            'cssnano-preset-advanced': '^4.0.7',
+            'postcss-aspect-ratio-mini': '^1.0.1',
+            'postcss-cssnext': '^3.1.0',
+            'postcss-import': '^12.0.1',
+            'postcss-px-to-viewport': '^1.1.1',
+            'postcss-url': '^8.0.0',
+            'postcss-write-svg': '^3.0.1'
+          }
+        : {})
     },
-    config: {
-      commitizen: {
-        path: './node_modules/cz-conventional-changelog'
-      }
-    },
-    husky: {
-      hooks: {
-        'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS'
-      }
-    }
+    ...(options.useCommitlint
+      ? {
+          config: {
+            commitizen: {
+              path: './node_modules/cz-conventional-changelog'
+            }
+          },
+          husky: {
+            hooks: {
+              'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS'
+            }
+          }
+        }
+      : {})
   })
 
   // 公共基础目录和文件
@@ -42,6 +62,15 @@ module.exports = (api, options, rootOptions) => {
     './.browserslistrc': './template/_browserslistrc',
     './.editorconfig': './template/_editorconfig',
     './.prettierrc': './template/_prettierrc.json',
-    './.commitlintrc.js': './template/_commitlintrc.js'
+    ...(options.useCommitlint
+      ? {
+          './.commitlintrc.js': './template/_commitlintrc.js'
+        }
+      : {}),
+    ...(options.useVW
+      ? {
+          './postcss.config.js': './template/postcss.config.js'
+        }
+      : {})
   })
 }

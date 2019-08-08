@@ -23,5 +23,17 @@ module.exports = [
     type: 'string',
     message: `config.xml 参数 | APP 描述`,
     default: 'app description'
+  },
+  {
+    name: 'useCommitlint',
+    type: 'confirm',
+    message: '是否使用 git cz 和 commitlint 来规范化 git commit ？',
+    default: true
+  },
+  {
+    name: 'useVW',
+    type: 'confirm',
+    message: '是否使用 vw 移动端适配方案？',
+    default: true
   }
 ]
