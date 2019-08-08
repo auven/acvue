@@ -41,6 +41,7 @@ module.exports = (api, options, rootOptions) => {
     './.gitignore': './template/_gitignore',
     './.browserslistrc': './template/_browserslistrc',
     './.editorconfig': './template/_editorconfig',
-    './.prettierrc': './template/_prettierrc.json'
+    './.prettierrc': './template/_prettierrc.json',
+    './.commitlintrc.js': './template/_commitlintrc.js'
   })
 }
