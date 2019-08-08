@@ -13,9 +13,23 @@ module.exports = (api, options, rootOptions) => {
         'apicloud wifiSync --project ./acapp/widget --updateAll true --port 8686'
     },
     devDependencies: {
-      handlebars: '^4.0.12',
+      handlebars: '^4.0.14',
       portfinder: '^1.0.19',
-      runjs: '^4.3.2'
+      runjs: '^4.3.2',
+      '@commitlint/cli': '^7.3.2',
+      '@commitlint/config-conventional': '^7.3.1',
+      'cz-conventional-changelog': '^2.1.0',
+      husky: '^1.3.1'
+    },
+    config: {
+      commitizen: {
+        path: './node_modules/cz-conventional-changelog'
+      }
+    },
+    husky: {
+      hooks: {
+        'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS'
+      }
     }
   })
 
