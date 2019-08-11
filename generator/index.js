@@ -12,10 +12,14 @@ module.exports = (api, options, rootOptions) => {
       wifiupdateall:
         'apicloud wifiSync --project ./acapp/widget --updateAll true --port 8686'
     },
+    dependencies: {
+      eruda: '^1.5.8'
+    },
     devDependencies: {
       handlebars: '^4.0.14',
       portfinder: '^1.0.19',
       runjs: '^4.3.2',
+      'svg-sprite-loader': '^4.1.6',
       ...(options.useCommitlint
         ? {
             '@commitlint/cli': '^7.3.2',

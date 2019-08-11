@@ -1,7 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './icons'
 
 Vue.config.productionTip = false
+
+// 移动端调试工具
+if (process.env.NODE_ENV !== 'production') {
+  require('eruda').init()
+}
 
 // APICloud
 window.apiready = () => {
